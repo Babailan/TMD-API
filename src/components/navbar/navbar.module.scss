@@ -1,0 +1,8 @@
+@use "../../styles/base";
+.container {
+  padding: 10px;
+  .title {
+    color: rgb(1, 106, 167);
+    font-family: base.$title-font;
+  }
+}

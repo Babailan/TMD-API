@@ -1,6 +1,10 @@
+### Always provide your own API KEY
+
+To register for an API key, click the [HERE](https://www.themoviedb.org/settings/api). from within your account settings page.
+
 ### Introduction
 
-Welcome to version 3 of The Movie Database (TMDB) API. Below you will find a current list of the available methods on our movie, tv, actor and image API. If you need help or support, please head over to there [API SUPPORT FORUM](https://www.themoviedb.org/talk/category/5047958519c29526b50017d6) .
+Welcome to version 3 of The Movie Database (TMDB) API. Below you will find a current list of the available methods on our movie, tv, actor and image API. If you need help or support, please head over to there [API SUPPORT FORUM](https://www.themoviedb.org/talk/category/5047958519c29526b50017d6).
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
