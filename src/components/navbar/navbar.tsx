@@ -6,7 +6,7 @@ const Navbar: NextPage = () => {
   return (
     <div className={styles.container}>
       <Link href={"/"}>
-        <h1 className={styles.title}>MOBY</h1>
+        <h1 className={styles.title}>MOVIES</h1>
       </Link>
     </div>
   );

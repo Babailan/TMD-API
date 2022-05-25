@@ -2,10 +2,13 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-
+  .title {
+    margin-bottom: 20px;
+  }
   .moviesList {
-    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 5px;
   }
 }

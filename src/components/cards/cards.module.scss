@@ -1,0 +1,22 @@
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 10px;
+
+  .images {
+    position: relative;
+    width: inherit;
+    height: 160px;
+    margin: auto;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .title {
+    width: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: start;
+  }
+}

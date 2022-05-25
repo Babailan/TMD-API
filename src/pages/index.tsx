@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { NextPage } from "next";
-import NewMovies from "../popularMovies";
+import NewMovies from "../components/popularMovies";
 import styles from "../styles/Home.module.scss";
 
 type props = {
