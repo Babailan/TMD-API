@@ -1,18 +1,13 @@
 import axios from "axios";
 import type { NextPage } from "next";
-import NewMovies from "../components/popularMovies";
-import styles from "../styles/Home.module.scss";
+import Movies from "../components/movies";
 
 type props = {
   popular: any;
 };
 
 const Home: NextPage = ({ popular }: props) => {
-  return (
-    <div className={styles.container}>
-      <NewMovies data={popular} />
-    </div>
-  );
+  return <Movies data={popular} subject={"Popular Movies"} />;
 };
 
 export async function getServerSideProps() {

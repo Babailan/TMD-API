@@ -1,0 +1,42 @@
+.container {
+  padding: 10px;
+  .moviesList {
+    padding: 20px 0;
+    .prevEl,
+    .nextEl {
+      position: absolute;
+      top: 45%;
+      -webkit-text-stroke: 0.16px #000;
+      transform: scale(4);
+      padding: 10px;
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none; /* Standard */
+    }
+    .hidden {
+      display: none;
+    }
+    .nextEl {
+      right: 20px;
+      pointer-events: visiblePainted;
+    }
+    .prevEl {
+      left: 20px;
+    }
+  }
+  .title {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

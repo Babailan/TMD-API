@@ -1,4 +1,5 @@
 @use "base";
+@use "ownSwiper";
 
 html,
 body {
@@ -7,6 +8,23 @@ body {
   min-height: 100vh;
 }
 
+::-webkit-scrollbar {
+  background-color: base.$background-body;
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 100px;
+  width: 10px;
+  border: 6px solid base.$background-body;
+  &:hover {
+    border: 4px solid base.$background-body;
+  }
+}
 a {
   color: inherit;
   text-decoration: none;
