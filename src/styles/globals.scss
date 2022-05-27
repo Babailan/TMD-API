@@ -36,3 +36,9 @@ a {
   margin: 0;
   color: base.$text-color;
 }
+
+@media (min-width: 640px) {
+  body {
+    padding: 2em;
+  }
+}
