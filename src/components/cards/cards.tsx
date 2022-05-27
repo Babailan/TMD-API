@@ -15,7 +15,7 @@ const Cards = ({ url, title, id }: props) => {
   return (
     <div onClick={containerClicked} className={styles.container}>
       <div className={styles.images}>
-        <Image src={url} loading={"lazy"} layout={"fill"} objectFit={"fill"} />
+        <Image src={url} loading="lazy" layout={"fill"} objectFit={"fill"} />
       </div>
       <p className={styles.title}>{title}</p>
       <div className={styles.blackBottom}></div>

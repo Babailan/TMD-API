@@ -16,7 +16,10 @@ type props = {
 const Movies = ({ data, subject }: props) => {
   const [change, setChange] = useState<boolean>(false);
   const imageUrl = process.env.imageUrl;
-  console.log(data);
+
+  const firstMove = () => {
+    setChange(true);
+  };
 
   return (
     <div className={styles.container}>
@@ -25,6 +28,7 @@ const Movies = ({ data, subject }: props) => {
         spaceBetween={10}
         loop={true}
         centeredSlides={true}
+        onSliderFirstMove={firstMove}
         navigation={{
           nextEl: `.${styles.nextEl}`,
           prevEl: `.${styles.prevEl}`,
@@ -54,10 +58,17 @@ const Movies = ({ data, subject }: props) => {
           &lt;
         </span>
 
-        {data.results.map(({ title, id, backdrop_path }) => {
+        {data.results.map(({ title, id, backdrop_path, name }) => {
+          if (backdrop_path === null) {
+            return;
+          }
           return (
             <SwiperSlide key={id}>
-              <Card title={title} id={id} url={`${imageUrl}${backdrop_path}`} />
+              <Card
+                title={title ? title : name}
+                id={id}
+                url={`${imageUrl}${backdrop_path}`}
+              />
             </SwiperSlide>
           );
         })}
