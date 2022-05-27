@@ -10,7 +10,7 @@ type props = {
 const UpComing = ({ data }: props) => {
   const imageUrl = process.env.imageUrl;
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ overflow: "hidden" }}>
       <p style={{ fontSize: "1.3em", marginBottom: "0.5em" }}>
         Upcoming Movies
       </p>
@@ -22,13 +22,14 @@ const UpComing = ({ data }: props) => {
           justifyContent: "space-evenly",
         }}
       >
-        {data.results.map(({ title, backdrop_path, name, id }) => {
+        {data.results.map(({ title, backdrop_path, name, id, overview }) => {
           return (
             <Card
               title={title ? title : name}
               url={`${imageUrl}${backdrop_path}`}
               id={id}
               key={id}
+              overview={overview ? overview : "No overview."}
             />
           );
         })}

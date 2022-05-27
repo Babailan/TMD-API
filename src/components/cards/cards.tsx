@@ -6,8 +6,9 @@ type props = {
   url?: string;
   title: string;
   id: string | number;
+  overview: string;
 };
-const Cards = ({ url, title, id }: props) => {
+const Cards = ({ url, title, id, overview }: props) => {
   const containerClicked = (e: { preventDefault: Function }) => {
     e.preventDefault();
     Router.push(`/watch?id=${id}`);
@@ -17,7 +18,10 @@ const Cards = ({ url, title, id }: props) => {
       <div className={styles.images}>
         <Image src={url} loading="lazy" layout={"fill"} objectFit={"fill"} />
       </div>
-      <p className={styles.title}>{title}</p>
+      <div className={styles.info}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.synopsis}>{overview}</p>
+      </div>
       <div className={styles.blackBottom}></div>
     </div>
   );

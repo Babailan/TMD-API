@@ -16,6 +16,7 @@ type props = {
 const Movies = ({ data, subject }: props) => {
   const [change, setChange] = useState<boolean>(false);
   const imageUrl = process.env.imageUrl;
+  console.log(data.results);
 
   const firstMove = () => {
     setChange(true);
@@ -42,7 +43,7 @@ const Movies = ({ data, subject }: props) => {
         <span
           unselectable="on"
           className={styles.nextEl}
-          onClick={() => {
+          onChange={() => {
             if (!change) {
               setChange(true);
             }
@@ -58,7 +59,7 @@ const Movies = ({ data, subject }: props) => {
           &lt;
         </span>
 
-        {data.results.map(({ title, id, backdrop_path, name }) => {
+        {data.results.map(({ title, id, backdrop_path, name, overview }) => {
           if (backdrop_path === null) {
             return;
           }
@@ -66,8 +67,9 @@ const Movies = ({ data, subject }: props) => {
             <SwiperSlide key={id}>
               <Card
                 title={title ? title : name}
-                id={id}
+                id={id ? id : ""}
                 url={`${imageUrl}${backdrop_path}`}
+                overview={overview ? overview : "No overview."}
               />
             </SwiperSlide>
           );
