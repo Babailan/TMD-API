@@ -1,3 +1,23 @@
 .container {
-  padding: 10px;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  .rightcol {
+    .API {
+      color: #6cddff;
+    }
+  }
+  .leftcol {
+    .github {
+      color: #6cddff;
+    }
+  }
+  .centercol {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    .year {
+      padding-left: 1px;
+    }
+  }
 }

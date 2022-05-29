@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { NextPage } from "next";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Movies from "../components/movies";
-import UpComing from "../components/upcoming";
 
 type props = {
   popular: any;
@@ -9,7 +9,6 @@ type props = {
   discoverMovies: any;
   discoverTv: any;
   tv_popular: any;
-  upcoming: any;
 };
 
 const Home: NextPage = ({
@@ -18,22 +17,36 @@ const Home: NextPage = ({
   discoverMovies,
   discoverTv,
   tv_popular,
-  upcoming,
 }: props) => {
   console.log(tv_popular);
   return (
-    <>
+    <div style={{ minHeight: "100vh" }}>
+      <Swiper
+        loop={true}
+        centeredSlides={true}
+        style={{ height: "100vh", width: "100%" }}
+      >
+        {popular.results.map(({ title, id, backdrop_path, name, overview }) => {
+          if (backdrop_path === null) {
+            return;
+          }
+          return (
+            <SwiperSlide key={id}>
+              <div style={{ width: "100vw ", display: "flex" }}>{title}</div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
       <Movies data={popular} subject={"Popular Movies"} />
       <Movies data={top_rated} subject={"Top Rated Movies"} />
       <Movies data={discoverMovies} subject={"Movie Discover"} />
       <Movies data={discoverTv} subject={"TV Discover"} />
       <Movies data={tv_popular} subject={"Popular TV Shows"} />
-      <UpComing data={upcoming} />
-    </>
+    </div>
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // fetch data ascending order https://api.themoviedb.org/3/discover/movie?api_key= <<API KEY SHOULD BE PROVIDED HERE>>
   const apiUrl = process.env.apiUrl;
   const popular = await axios.get(`${apiUrl}/movie/popular`, {
@@ -64,15 +77,10 @@ export async function getServerSideProps() {
   const tv_popular = await axios.get(`${apiUrl}/tv/popular`, {
     params: {
       api_key: process.env.TMB_APIKEY,
-      page: 2,
-    },
-  });
-  const upcoming = await axios.get(`${apiUrl}/movie/upcoming`, {
-    params: {
-      api_key: process.env.TMB_APIKEY,
       page: 1,
     },
   });
+
   return {
     props: {
       popular: popular.data,
@@ -80,8 +88,8 @@ export async function getServerSideProps() {
       discoverMovies: discoverMovies.data,
       discoverTv: discoverTv.data,
       tv_popular: tv_popular.data,
-      upcoming: upcoming.data,
     },
+    revalidate: 43200,
   };
 }
 export default Home;

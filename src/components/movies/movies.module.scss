@@ -1,7 +1,6 @@
 .container {
-  padding: 0 10px;
   .moviesList {
-    padding: 20px 0;
+    padding: 10px 0;
     .prevEl,
     .nextEl {
       position: absolute;
@@ -35,8 +34,13 @@
     margin-bottom: 20px;
     font-size: 1.3em;
     &:hover {
-      text-decoration: underline;
       cursor: pointer;
     }
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 2em;
   }
 }
