@@ -1,7 +1,10 @@
 import axios from "axios";
 import type { NextPage } from "next";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Movies from "../components/movies";
+import styles from "../styles/home.module.scss";
+import { Pagination } from "swiper";
 
 type props = {
   popular: any;
@@ -18,21 +21,30 @@ const Home: NextPage = ({
   discoverTv,
   tv_popular,
 }: props) => {
-  console.log(tv_popular);
+  const sliced = popular.results.slice(0, 5);
   return (
     <div style={{ minHeight: "100vh" }}>
       <Swiper
         loop={true}
-        centeredSlides={true}
-        style={{ height: "100vh", width: "100%" }}
+        className={styles.container}
+        pagination={{ clickable: true, type: "bullets" }}
+        modules={[Pagination]}
+        autoplay={{ delay: 5000 }}
       >
-        {popular.results.map(({ title, id, backdrop_path, name, overview }) => {
+        <div className={styles.blackBottom}></div>
+        <div className={styles.blackTop}></div>
+        {sliced.map(({ title, id, backdrop_path, name, overview }) => {
           if (backdrop_path === null) {
             return;
           }
           return (
-            <SwiperSlide key={id}>
-              <div style={{ width: "100vw ", display: "flex" }}>{title}</div>
+            <SwiperSlide className={styles.slides} key={id}>
+              <h1>{title}</h1>
+              <Image
+                src={`${process.env.imageUrl}${backdrop_path}`}
+                layout={"fill"}
+                objectFit={"cover"}
+              />
             </SwiperSlide>
           );
         })}

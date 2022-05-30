@@ -1,0 +1,44 @@
+@use "../styles/base";
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .slides {
+    width: 100% !important;
+    height: 90vh !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    margin: 0 !important;
+    h1 {
+      display: flex;
+      z-index: 4;
+      color: #fff;
+    }
+  }
+  .blackBottom {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    background-image: linear-gradient(transparent 70%, #212121);
+    z-index: 1;
+  }
+  .blackTop {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    background-image: linear-gradient(#212121b3 5%, transparent 20%);
+    z-index: 1;
+  }
+}

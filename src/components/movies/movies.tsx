@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../cards";
 import styles from "./movies.module.scss";
-import "swiper/css";
+
 import { useState } from "react";
 import { Navigation } from "swiper";
 

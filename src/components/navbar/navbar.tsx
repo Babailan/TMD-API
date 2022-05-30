@@ -1,11 +1,21 @@
 import type { NextPage } from "next";
-import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import styles from "./navbar.module.scss";
 import Router from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar: NextPage = () => {
+  const [absolute, setAbsolute] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log(Router.pathname);
+    if (Router.pathname === "/") {
+      setAbsolute(true);
+    }
+  }, []);
+
+  if (!absolute) return <></>;
+
   return (
     <div className={styles.container}>
       <div className={styles.leftcol}>
