@@ -1,23 +1,26 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "./navbar.module.scss";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Navbar: NextPage = () => {
   const [absolute, setAbsolute] = useState<boolean>(false);
+  const router = useRouter();
 
   useEffect(() => {
-    console.log(Router.pathname);
-    if (Router.pathname === "/") {
+    if (router.pathname === "/") {
       setAbsolute(true);
+    } else {
+      setAbsolute(false);
     }
-  }, []);
-
-  if (!absolute) return <></>;
+  }, [router.pathname]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ position: absolute ? "absolute" : "relative" }}
+    >
       <div className={styles.leftcol}>
         <Link href={"/"}>
           <h1 className={styles.title}>MOVIES</h1>

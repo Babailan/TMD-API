@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Movies from "../components/movies";
 import styles from "../styles/home.module.scss";
 import { Pagination } from "swiper";
+import libs from "../libs";
+import HomeSlides from "../components/homeSlides";
 
 type props = {
   popular: any;
@@ -24,31 +26,7 @@ const Home: NextPage = ({
   const sliced = popular.results.slice(0, 5);
   return (
     <div style={{ minHeight: "100vh" }}>
-      <Swiper
-        loop={true}
-        className={styles.container}
-        pagination={{ clickable: true, type: "bullets" }}
-        modules={[Pagination]}
-        autoplay={{ delay: 5000 }}
-      >
-        <div className={styles.blackBottom}></div>
-        <div className={styles.blackTop}></div>
-        {sliced.map(({ title, id, backdrop_path, name, overview }) => {
-          if (backdrop_path === null) {
-            return;
-          }
-          return (
-            <SwiperSlide className={styles.slides} key={id}>
-              <h1>{title}</h1>
-              <Image
-                src={`${process.env.imageUrl}${backdrop_path}`}
-                layout={"fill"}
-                objectFit={"cover"}
-              />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      <HomeSlides styles={styles} sliced={sliced} />
       <Movies data={popular} subject={"Popular Movies"} />
       <Movies data={top_rated} subject={"Top Rated Movies"} />
       <Movies data={discoverMovies} subject={"Movie Discover"} />
@@ -89,7 +67,7 @@ export async function getStaticProps() {
   const tv_popular = await axios.get(`${apiUrl}/tv/popular`, {
     params: {
       api_key: process.env.TMB_APIKEY,
-      page: 1,
+      page: 2,
     },
   });
 

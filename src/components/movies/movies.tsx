@@ -16,7 +16,6 @@ type props = {
 const Movies = ({ data, subject }: props) => {
   const [change, setChange] = useState<boolean>(false);
   const imageUrl = process.env.imageUrl;
-  console.log(data.results);
 
   const firstMove = () => {
     setChange(true);

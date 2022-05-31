@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Router from "next/router";
 import styles from "./cards.module.scss";
+import libs from "../../libs";
 
 type props = {
   url?: string;
@@ -9,12 +9,8 @@ type props = {
   overview: string;
 };
 const Cards = ({ url, title, id, overview }: props) => {
-  const containerClicked = (e: { preventDefault: Function }) => {
-    e.preventDefault();
-    Router.push(`/watch?id=${id}`);
-  };
   return (
-    <div onClick={containerClicked} className={styles.container}>
+    <div onClick={(e) => libs.watchpush(e, id)} className={styles.container}>
       <div className={styles.images}>
         <Image src={url} loading="lazy" layout={"fill"} objectFit={"fill"} />
       </div>

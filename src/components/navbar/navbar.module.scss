@@ -1,6 +1,7 @@
 @use "../../styles/base";
+
 .container {
-  position: absolute;
+  display: flex;
 
   .leftcol {
     padding: 10px;

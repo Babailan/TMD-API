@@ -5,16 +5,8 @@ type props = {
   id: number | string;
 };
 
-const Page: NextPage = ({ id }: props) => {
+const Page: NextPage = () => {
   return <Watch />;
 };
-
-export async function getServerSideProps(Context: GetServerSidePropsContext) {
-  return {
-    props: {
-      id: Context.query.id,
-    },
-  };
-}
 
 export default Page;
