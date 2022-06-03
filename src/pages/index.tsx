@@ -7,6 +7,7 @@ import styles from "../styles/home.module.scss";
 import { Pagination } from "swiper";
 import libs from "../libs";
 import HomeSlides from "../components/homeSlides";
+import Head from "next/head";
 
 type props = {
   popular: any;
@@ -26,6 +27,9 @@ const Home: NextPage = ({
   const sliced = popular.results.slice(0, 5);
   return (
     <div style={{ minHeight: "100vh" }}>
+      <Head>
+        <title>Home Page</title>
+      </Head>
       <HomeSlides styles={styles} sliced={sliced} />
       <Movies data={popular} subject={"Popular Movies"} />
       <Movies data={top_rated} subject={"Top Rated Movies"} />
