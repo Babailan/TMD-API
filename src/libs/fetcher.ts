@@ -7,6 +7,7 @@ const axiosFetcher = (url: string | any) =>
 
 const browserFetcher = (url: string | any) =>
   fetch(url).then((res) => {
+    console.log(res);
     if (res.status >= 400)
       throw Error("The resource you requested could not be found.");
     return res.json();

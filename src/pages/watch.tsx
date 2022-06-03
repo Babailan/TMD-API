@@ -8,7 +8,8 @@ import { browserFetcher } from "../libs";
 const Page: NextPage = () => {
   const router = useRouter();
   const { data, error } = useSWR(
-    router.query.id && `/api/watch?id=${router.query.id}`,
+    router.query.id &&
+      `/api/watch?id=${router.query.id}&type=${router.query.type}`,
     browserFetcher,
     {
       revalidateIfStale: false,
@@ -16,8 +17,8 @@ const Page: NextPage = () => {
       shouldRetryOnError: false,
     }
   );
+
   if (error) {
-    console.log(error);
     return (
       <h1
         style={{
@@ -33,7 +34,7 @@ const Page: NextPage = () => {
     );
   }
 
-  if (data)
+  if (data) {
     return (
       <>
         <Head>
@@ -46,6 +47,9 @@ const Page: NextPage = () => {
         />
       </>
     );
+  }
+
+  return <></>;
 };
 
 export default Page;

@@ -3,16 +3,16 @@ import { axiosFetcher } from "../../libs";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
-    const { id } = req.query;
+    const { id, type } = req.query;
     const tmd_api = process.env.TMB_APIKEY;
     const details = await axiosFetcher(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${tmd_api}&language=en-US`
+      `https://api.themoviedb.org/3/${type}/${id}?api_key=${tmd_api}&language=en-US`
     );
     let videos = await axiosFetcher(
-      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${tmd_api}&language=en-US`
+      `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${tmd_api}&language=en-US`
     );
     let similar = await axiosFetcher(
-      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${tmd_api}&language=en-US`
+      `https://api.themoviedb.org/3/${type}/${id}/similar?api_key=${tmd_api}&language=en-US`
     );
 
     videos = videos.results.sort((a: any) => {

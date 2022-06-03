@@ -5,7 +5,9 @@ const Watch = ({ videos, details, similar }) => {
   const img = process.env.imageUrl1280;
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>{details.title}</h2>
+      <h2 className={styles.title}>
+        {details.title ? details.title : details.name}
+      </h2>
       <iframe
         className={styles.video}
         typeof="text/html"

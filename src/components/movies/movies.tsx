@@ -11,9 +11,10 @@ type props = {
     pages: any;
   };
   subject: string;
+  type: string;
 };
 
-const Movies = ({ data, subject }: props) => {
+const Movies = ({ data, subject, type }: props) => {
   const [change, setChange] = useState<boolean>(false);
   const imageUrl = process.env.imageUrl550;
 
@@ -69,6 +70,7 @@ const Movies = ({ data, subject }: props) => {
                 id={id ? id : ""}
                 url={`${imageUrl}${backdrop_path}`}
                 overview={overview ? overview : "No overview."}
+                type={type}
               />
             </SwiperSlide>
           );

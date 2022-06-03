@@ -7,10 +7,14 @@ type props = {
   title: string;
   id: string | number;
   overview: string;
+  type: string;
 };
-const Cards = ({ url, title, id, overview }: props) => {
+const Cards = ({ url, title, id, overview, type }: props) => {
   return (
-    <div onClick={(e) => libs.watchpush(e, id)} className={styles.container}>
+    <div
+      onClick={(e) => libs.watchpush(e, { id, type })}
+      className={styles.container}
+    >
       <div className={styles.images}>
         <Image src={url} loading="lazy" layout={"fill"} objectFit={"fill"} />
       </div>

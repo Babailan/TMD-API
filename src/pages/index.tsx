@@ -25,17 +25,18 @@ const Home: NextPage = ({
   tv_popular,
 }: props) => {
   const sliced = popular.results.slice(0, 5);
+  console.log(sliced);
   return (
     <div style={{ minHeight: "100vh" }}>
       <Head>
         <title>Home Page</title>
       </Head>
       <HomeSlides styles={styles} sliced={sliced} />
-      <Movies data={popular} subject={"Popular Movies"} />
-      <Movies data={top_rated} subject={"Top Rated Movies"} />
-      <Movies data={discoverMovies} subject={"Movie Discover"} />
-      <Movies data={discoverTv} subject={"TV Discover"} />
-      <Movies data={tv_popular} subject={"Popular TV Shows"} />
+      <Movies data={popular} subject={"Popular Movies"} type={"movie"} />
+      <Movies data={top_rated} subject={"Top Rated Movies"} type={"movie"} />
+      <Movies data={discoverMovies} subject={"Movie Discover"} type={"movie"} />
+      <Movies data={discoverTv} subject={"TV Discover"} type={"tv"} />
+      <Movies data={tv_popular} subject={"Popular TV Shows"} type={"tv"} />
     </div>
   );
 };
