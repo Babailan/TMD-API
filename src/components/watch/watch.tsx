@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./watch.module.scss";
 
 const Watch = ({ videos, details, similar }) => {
-  const img = process.env.imageUrl1280;
+  const img = process.env.imageUrl550;
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>

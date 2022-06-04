@@ -49,7 +49,7 @@ const Page: NextPage = () => {
     );
   }
 
-  return <></>;
+  return <div style={{ minHeight: "100vh" }}></div>;
 };
 
 export default Page;
