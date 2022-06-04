@@ -1,0 +1,31 @@
+.container {
+  gap: 1em;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .title {
+      width: 200px;
+      min-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 2em;
+  }
+}

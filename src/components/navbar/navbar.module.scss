@@ -2,9 +2,9 @@
 
 .container {
   display: flex;
+  padding: 10px;
 
   .leftcol {
-    padding: 10px;
     display: flex;
     z-index: 2;
     .title {
@@ -27,8 +27,6 @@
 
 @media (min-width: 640px) {
   .container {
-    .leftcol {
-      padding: 1em 2em;
-    }
+    padding: 1em 2em;
   }
 }

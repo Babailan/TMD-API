@@ -1,5 +1,5 @@
 .container {
-  padding: 2em;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   .rightcol {
@@ -19,5 +19,11 @@
     .year {
       padding-left: 1px;
     }
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 2em;
   }
 }

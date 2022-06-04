@@ -1,14 +1,20 @@
 import { GetServerSidePropsContext, NextPage } from "next";
-import { useRouter } from "next/router";
-import Poster from "../components/poster";
 import { axiosFetcher } from "../libs";
 import getGenreId from "../libs/genre";
-type props = {
-  data: any;
+import { RootObject } from "../interface/genre";
+import Genre from "../components/genre";
+
+type Props = {
+  data: RootObject;
+  type: string;
 };
-const Page: NextPage = ({ data }: props) => {
-  console.log(data);
-  return <></>;
+
+const Page: NextPage = ({ data, type }: Props) => {
+  return (
+    <div style={{ minHeight: "100vh" }}>
+      <Genre data={data} type={type} />
+    </div>
+  );
 };
 
 export async function getServerSideProps(Context: GetServerSidePropsContext) {
@@ -21,7 +27,7 @@ export async function getServerSideProps(Context: GetServerSidePropsContext) {
   const data = await axiosFetcher(
     `https://api.themoviedb.org/3/discover/movie?api_key=${tmdb_api}&language=en-US&sort_by=popularity.desc&with_genres=${genreId}`
   );
-  return { props: { data } };
+  return { props: { data, type: Context.query.type } };
 }
 
 export default Page;
