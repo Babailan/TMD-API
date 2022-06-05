@@ -10,18 +10,20 @@ type Props = {
 const Component = ({ data, type }: Props) => {
   return (
     <div className={styles.container}>
-      {data.results.map(({ poster_path, title, id }) => {
+      {data.results.map(({ poster_path, title, id, name }) => {
         return (
           <div className={styles.card}>
             <Poster
               onClick={(e: any) => watchpush(e, { id: id, type: type })}
               poster_path={poster_path}
+              title={title}
             />
             <span
               className={styles.title}
               onClick={(e) => watchpush(e, { id: id, type: type })}
+              title={title}
             >
-              {title}
+              {title ? title : name}
             </span>
           </div>
         );

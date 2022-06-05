@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Movies</title>
+        <title>Untitled</title>
       </Head>
       <Navbar />
       <Component {...pageProps} />

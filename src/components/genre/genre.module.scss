@@ -17,6 +17,7 @@
       -webkit-line-clamp: 1; /* number of lines to show */
       line-clamp: 1;
       -webkit-box-orient: vertical;
+      cursor: pointer;
       &:hover {
         text-decoration: underline;
       }

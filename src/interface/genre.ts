@@ -13,6 +13,7 @@ export interface Result {
   vote_count: number;
   video: boolean;
   vote_average: number;
+  name: string;
 }
 
 export interface RootObject {

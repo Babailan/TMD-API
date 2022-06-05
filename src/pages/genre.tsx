@@ -19,15 +19,16 @@ const Page: NextPage = ({ data, type }: Props) => {
 
 export async function getServerSideProps(Context: GetServerSidePropsContext) {
   const tmdb_api = process.env.TMB_APIKEY;
+  const type = Context.query.type || "none";
   let genres = await axiosFetcher(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${tmdb_api}&language=en-US`
+    `https://api.themoviedb.org/3/genre/${type}/list?api_key=${tmdb_api}&language=en-US`
   );
   genres = genres.genres;
   const genreId = getGenreId(Context.query.v, genres);
   const data = await axiosFetcher(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${tmdb_api}&language=en-US&sort_by=popularity.desc&with_genres=${genreId}`
+    `https://api.themoviedb.org/3/discover/${type}?api_key=${tmdb_api}&language=en-US&sort_by=popularity.desc&with_genres=${genreId}`
   );
-  return { props: { data, type: Context.query.type } };
+  return { props: { data, type } };
 }
 
 export default Page;
