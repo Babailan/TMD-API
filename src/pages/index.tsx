@@ -43,35 +43,36 @@ const Home: NextPage = ({
 export async function getStaticProps() {
   // fetch data ascending order https://api.themoviedb.org/3/discover/movie?api_key= <<API KEY SHOULD BE PROVIDED HERE>>
   const apiUrl = process.env.apiUrl;
+  const randomPage = Math.random() * 20;
   const popular = await axios.get(`${apiUrl}/movie/popular`, {
     params: {
       api_key: process.env.TMB_APIKEY,
-      page: 1,
+      page: randomPage,
     },
   });
   const top_rated = await axios.get(`${apiUrl}/movie/top_rated`, {
     params: {
       api_key: process.env.TMB_APIKEY,
-      page: 1,
+      page: randomPage,
     },
   });
 
   const discoverMovies = await axios.get(`${apiUrl}/discover/movie`, {
     params: {
       api_key: process.env.TMB_APIKEY,
-      page: 1,
+      page: randomPage,
     },
   });
   const discoverTv = await axios.get(`${apiUrl}/discover/tv`, {
     params: {
       api_key: process.env.TMB_APIKEY,
-      page: 1,
+      page: randomPage,
     },
   });
   const tv_popular = await axios.get(`${apiUrl}/tv/popular`, {
     params: {
       api_key: process.env.TMB_APIKEY,
-      page: 2,
+      page: randomPage + 1,
     },
   });
 

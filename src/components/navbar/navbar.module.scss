@@ -2,7 +2,9 @@
 
 .container {
   display: flex;
-  padding: 10px;
+  padding: 1em;
+  justify-content: space-between;
+  width: 100%;
 
   .name {
     cursor: pointer;
@@ -71,6 +73,47 @@
     z-index: 1;
     top: 0;
     background-color: rgb(133, 133, 133);
+  }
+  .rightcol {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    .search {
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+
+      h3,
+      path {
+        color: rgba(255, 255, 255, 0.803);
+      }
+      &:hover {
+        h3,
+        path {
+          color: rgb(255, 255, 255);
+        }
+        .input::placeholder {
+          color: #fff;
+        }
+      }
+      .input {
+        border: none;
+        outline: none;
+        font-size: 1.2em;
+        transition: 0.5s;
+        width: 100px;
+        background-color: transparent;
+        cursor: pointer;
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.803);
+        }
+        &:focus {
+          width: 150px;
+          color: rgb(255, 255, 255);
+          cursor: text;
+        }
+      }
+    }
   }
 }
 

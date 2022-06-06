@@ -25,8 +25,9 @@ export async function getServerSideProps(Context: GetServerSidePropsContext) {
   );
   genres = genres.genres;
   const genreId = getGenreId(Context.query.v, genres);
+  const randomPage = Math.random() * 20;
   const data = await axiosFetcher(
-    `https://api.themoviedb.org/3/discover/${type}?api_key=${tmdb_api}&language=en-US&sort_by=popularity.desc&with_genres=${genreId}`
+    `https://api.themoviedb.org/3/discover/${type}?api_key=${tmdb_api}&language=en-US&sort_by=popularity.desc&with_genres=${genreId}&page=${randomPage}`
   );
   return { props: { data, type } };
 }

@@ -7,9 +7,7 @@
 
   .slides {
     width: 100% !important;
-    height: 90vh !important;
-    max-height: 680px;
-
+    height: 70vh !important;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -19,7 +17,7 @@
       display: flex;
       margin-bottom: 20px;
       flex-direction: column;
-      padding: 2em;
+      padding: 1em;
       gap: 10px;
       h1,
       p,
@@ -51,8 +49,7 @@
     pointer-events: none;
     position: absolute;
     top: 0;
-    max-height: 680px;
-    height: 90vh;
+    height: 70vh;
     width: 100%;
     display: flex;
     background-image: linear-gradient(transparent 70%, #212121);
@@ -62,11 +59,20 @@
     pointer-events: none;
     position: absolute;
     top: 0;
-    max-height: 680px;
-    height: 90vh;
+    height: 70vh;
     width: 100%;
     display: flex;
     background-image: linear-gradient(#212121b3 5%, transparent 20%);
     z-index: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    .slides {
+      .aboutSlide {
+        padding: 2em;
+      }
+    }
   }
 }

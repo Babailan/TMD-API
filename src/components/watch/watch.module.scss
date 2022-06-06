@@ -1,5 +1,5 @@
 .container {
-  padding: 2em;
+  padding: 1em;
   min-height: 100vh;
   .video {
     width: 100%;
@@ -13,6 +13,7 @@
     margin-top: 50px;
     gap: 20px;
     flex-direction: column;
+    max-width: 1000px;
     .many_text {
       display: flex;
       flex-direction: column;
@@ -34,7 +35,10 @@
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 640px) {
+  .container {
+    padding: 2em;
+  }
   .information {
     flex-direction: row !important;
   }

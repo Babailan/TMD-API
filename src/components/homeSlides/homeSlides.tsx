@@ -30,7 +30,11 @@ const HomeSlides = ({ styles, sliced }) => {
             <div className={styles.aboutSlide}>
               <h1>{title}</h1>
               <p>{overview}</p>
-              <button onClick={(e) => libs.watchpush(e, id)}>Watch Now</button>
+              <button
+                onClick={(e) => libs.watchpush(e, { id: id, type: "movie" })}
+              >
+                Watch Now
+              </button>
             </div>
           </SwiperSlide>
         );

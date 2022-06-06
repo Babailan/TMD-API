@@ -43,7 +43,7 @@ const Movies = ({ data, subject, type }: props) => {
         <span
           unselectable="on"
           className={styles.nextEl}
-          onChange={() => {
+          onClick={() => {
             if (!change) {
               setChange(true);
             }

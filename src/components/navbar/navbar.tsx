@@ -4,6 +4,8 @@ import styles from "./navbar.module.scss";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import genre from "../../json/genre";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar: NextPage = () => {
   const [absolute, setAbsolute] = useState<boolean>(false);
@@ -32,6 +34,7 @@ const Navbar: NextPage = () => {
             className={`${router.pathname === "/" ? styles.bold : ""} ${
               styles.name
             }`}
+            onClick={() => router.push("/")}
           >
             Home
           </p>
@@ -46,8 +49,9 @@ const Navbar: NextPage = () => {
               Movies
             </p>
             <div className={styles.genreList}>
-              {list.genre.map(({ name }) => (
+              {list.genre.map(({ name }, index) => (
                 <p
+                  key={index}
                   className={
                     router.query.v === name && router.query.type === "movie"
                       ? styles.bold
@@ -71,8 +75,9 @@ const Navbar: NextPage = () => {
               TV Shows
             </p>
             <div className={styles.genreList}>
-              {list.genre.map(({ name }) => (
+              {list.genre.map(({ name }, index) => (
                 <p
+                  key={index}
                   className={
                     router.query.v === name && router.query.type === "tv"
                       ? styles.bold
@@ -86,6 +91,12 @@ const Navbar: NextPage = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className={styles.rightcol}>
+        <label className={styles.search}>
+          <FontAwesomeIcon size={"lg"} icon={faSearch} />
+          <input className={styles.input} placeholder="Search"></input>
+        </label>
       </div>
     </div>
   );
