@@ -16,7 +16,13 @@ const Cards = ({ url, title, id, overview, type }: props) => {
       className={styles.container}
     >
       <div className={styles.images}>
-        <Image src={url} loading="lazy" layout={"fill"} objectFit={"fill"} />
+        <Image
+          src={url}
+          loading="lazy"
+          layout={"fill"}
+          objectFit={"fill"}
+          alt={title}
+        />
       </div>
       <div className={styles.info}>
         <h3 className={styles.title}>{title}</h3>

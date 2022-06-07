@@ -36,6 +36,7 @@ const Watch = ({ videos, details, similar }) => {
             src={`${img}/${details.poster_path}`}
             layout={"fill"}
             objectFit={"contain"}
+            alt={details.title ? details.title : details.name}
           />
         </div>
         <div className={styles.many_text}>

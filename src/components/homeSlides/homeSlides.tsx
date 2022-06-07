@@ -24,6 +24,7 @@ const HomeSlides = ({ styles, sliced }) => {
               src={`${image}/${backdrop_path}`}
               layout={"fill"}
               objectFit={"cover"}
+              alt={title}
             />
             <div className={styles.blackBottom}></div>
             <div className={styles.blackTop}></div>

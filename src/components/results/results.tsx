@@ -7,7 +7,7 @@ import styles from "./results.module.scss";
 import { Result } from "../../interface/genre";
 import Poster from "../poster";
 
-export default ({ setVisible }) => {
+function YAYRESULT({ setVisible }) {
   const [search, setSearch] = useState({ text: "", data: {} });
   const { data } = useSWR(
     search.text.length > 0 && `/api/search?q=${search.text}`,
@@ -68,4 +68,6 @@ export default ({ setVisible }) => {
       </div>
     </div>
   );
-};
+}
+
+export default YAYRESULT;

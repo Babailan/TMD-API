@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { axiosFetcher } from "../../libs";
 
-export default async function (req: NextApiRequest, res: NextApiResponse) {
+async function NextAPI(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { id, type } = req.query;
     const tmd_api = process.env.TMB_APIKEY;
@@ -37,3 +37,5 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     res.end();
   }
 }
+
+export default NextAPI;

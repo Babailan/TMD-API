@@ -9,6 +9,7 @@ const Footer = () => {
           href={"https://github.com/Babailan/TMD-API"}
           target={"_blank"}
           className={styles.github}
+          rel={"noreferrer"}
         >
           REPOSITORY
         </a>
@@ -21,6 +22,7 @@ const Footer = () => {
           href={"https://developers.themoviedb.org/"}
           target={"_blank"}
           className={styles.API}
+          rel={"noreferrer"}
         >
           USED API
         </a>

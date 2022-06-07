@@ -16,6 +16,7 @@ const Component = ({ onClick, poster_path, title }: Props) => {
         layout={"fill"}
         objectFit={"contain"}
         loading={"lazy"}
+        alt={title}
       />
     </div>
   );
