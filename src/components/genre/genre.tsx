@@ -12,7 +12,7 @@ const Component = ({ data, type }: Props) => {
     <div className={styles.container}>
       {data.results.map(({ poster_path, title, id, name }) => {
         return (
-          <div className={styles.card}>
+          <div className={styles.card} key={id}>
             <Poster
               onClick={(e: any) => watchpush(e, { id: id, type: type })}
               poster_path={poster_path}

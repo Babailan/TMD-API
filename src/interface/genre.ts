@@ -14,6 +14,7 @@ export interface Result {
   video: boolean;
   vote_average: number;
   name: string;
+  media_type: string;
 }
 
 export interface RootObject {

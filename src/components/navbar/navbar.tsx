@@ -6,11 +6,22 @@ import { useEffect, useState } from "react";
 import genre from "../../json/genre";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useSWR from "swr";
+import { browserFetcher, watchpush } from "../../libs";
+import { Result } from "../../interface/genre";
+import Poster from "../poster";
 
-const Navbar: NextPage = () => {
+const Navbar = ({ visible, setVisible }) => {
   const [absolute, setAbsolute] = useState<boolean>(false);
-  const [list] = useState({ genre, visible: false });
+  const [list] = useState({ genre });
   const router = useRouter();
+  const [search, setSearch] = useState({ text: "", data: {} });
+  const imageUrl = process.env.imageUrl550;
+
+  const { data } = useSWR(
+    search.text.length > 0 && `/api/search?q=${search.text}`,
+    browserFetcher
+  );
 
   useEffect(() => {
     if (router.pathname === "/") {
@@ -19,6 +30,12 @@ const Navbar: NextPage = () => {
       setAbsolute(false);
     }
   }, [router.pathname]);
+
+  const onChange = (e: any) => {
+    setSearch((p) => {
+      return { ...p, data: data, text: e.target.value };
+    });
+  };
 
   return (
     <div
@@ -93,10 +110,12 @@ const Navbar: NextPage = () => {
         </div>
       </div>
       <div className={styles.rightcol}>
-        <label className={styles.search}>
-          <FontAwesomeIcon size={"lg"} icon={faSearch} />
-          <input className={styles.input} placeholder="Search"></input>
-        </label>
+        <FontAwesomeIcon
+          size={"lg"}
+          icon={faSearch}
+          onClick={() => setVisible(true)}
+          style={{ cursor: "pointer" }}
+        />
       </div>
     </div>
   );

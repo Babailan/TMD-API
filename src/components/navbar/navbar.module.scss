@@ -5,6 +5,7 @@
   padding: 1em;
   justify-content: space-between;
   width: 100%;
+  z-index: 2;
 
   .name {
     cursor: pointer;
@@ -14,7 +15,7 @@
   }
   .leftcol {
     display: flex;
-    z-index: 2;
+
     align-items: center;
     .bar {
       position: relative;
@@ -77,7 +78,6 @@
   .rightcol {
     display: flex;
     align-items: center;
-    z-index: 2;
     .search {
       display: flex;
       gap: 10px;
@@ -101,13 +101,14 @@
         outline: none;
         font-size: 1.2em;
         transition: 0.5s;
-        width: 100px;
+        width: 0;
         background-color: transparent;
         cursor: pointer;
         &::placeholder {
           color: rgba(255, 255, 255, 0.803);
         }
-        &:focus {
+        &:focus,
+        &:valid {
           width: 150px;
           color: rgb(255, 255, 255);
           cursor: text;
@@ -118,8 +119,9 @@
 }
 
 @media (min-width: 640px) {
-  .container {
-    padding: 1em 2em !important;
+  .container,
+  .Result {
+    padding: 2em !important;
   }
   .afterTitle {
     display: flex !important;

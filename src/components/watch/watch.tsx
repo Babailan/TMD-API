@@ -8,12 +8,28 @@ const Watch = ({ videos, details, similar }) => {
       <h2 className={styles.title}>
         {details.title ? details.title : details.name}
       </h2>
-      <iframe
-        className={styles.video}
-        typeof="text/html"
-        src={`https://www.youtube.com/embed/${videos[0].key}`}
-        frameBorder={0}
-      ></iframe>
+      {videos.length > 0 ? (
+        <iframe
+          className={styles.video}
+          typeof="text/html"
+          src={`https://www.youtube.com/embed/${videos[0].key}`}
+          frameBorder={0}
+        ></iframe>
+      ) : (
+        <h1
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            backgroundColor: "#000",
+            minHeight: "70vh",
+          }}
+        >
+          No available video
+        </h1>
+      )}
+
       <div className={styles.information}>
         <div className={styles.poster}>
           <Image
