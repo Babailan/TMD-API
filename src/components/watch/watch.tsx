@@ -1,8 +1,11 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
+import Card from "../cards";
 import styles from "./watch.module.scss";
 
 const Watch = ({ videos, details, similar }) => {
   const img = process.env.imageUrl550;
+  const { type } = useRouter().query;
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>
@@ -53,6 +56,25 @@ const Watch = ({ videos, details, similar }) => {
               );
             })}
           </p>
+        </div>
+      </div>
+      <div className={styles.suggestions}>
+        <h3>Suggestions</h3>
+        <div className={styles.suggestionlist}>
+          {similar.results.map(({ poster_path, id, title, name }) => {
+            if (!poster_path) {
+              return;
+            }
+            return (
+              <Card
+                id={id}
+                type={type}
+                key={id}
+                url={poster_path}
+                title={title ? title : name}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

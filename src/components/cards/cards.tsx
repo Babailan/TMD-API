@@ -1,34 +1,34 @@
 import Image from "next/image";
 import styles from "./cards.module.scss";
-import libs from "../../libs";
+import libs, { watchpush } from "../../libs";
+import Poster from "../poster";
 
 type props = {
-  url?: string;
+  url: string;
   title: string;
   id: string | number;
-  overview: string;
-  type: string;
+  type: any;
 };
-const Cards = ({ url, title, id, overview, type }: props) => {
+
+const Cards = ({ title, id, type, url }: props) => {
   return (
-    <div
-      onClick={(e) => libs.watchpush(e, { id, type })}
-      className={styles.container}
-    >
-      <div className={styles.images}>
-        <Image
-          src={url}
-          loading="lazy"
-          layout={"fill"}
-          objectFit={"fill"}
-          alt={title}
-        />
-      </div>
-      <div className={styles.info}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.synopsis}>{overview}</p>
-      </div>
-      <div className={styles.blackBottom}></div>
+    <div className={styles.card} key={id}>
+      <Poster
+        poster_path={url}
+        title={title}
+        onClick={(e) => {
+          watchpush(e, { id: id, type: type });
+        }}
+      />
+      <span
+        className={styles.title}
+        onClick={(e) => {
+          watchpush(e, { id: id, type: type });
+        }}
+        title={title}
+      >
+        {title}
+      </span>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const HomeSlides = ({ styles, sliced }) => {
             <div className={styles.blackBottom}></div>
             <div className={styles.blackTop}></div>
             <div className={styles.aboutSlide}>
-              <h1>{title}</h1>
+              <h2>{title}</h2>
               <p>{overview}</p>
               <button
                 onClick={(e) => libs.watchpush(e, { id: id, type: "movie" })}

@@ -1,9 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../cards";
 import styles from "./movies.module.scss";
-
-import { useState } from "react";
-import { Navigation } from "swiper";
 
 type props = {
   data: {
@@ -15,67 +11,25 @@ type props = {
 };
 
 const Movies = ({ data, subject, type }: props) => {
-  const [change, setChange] = useState<boolean>(false);
-  const imageUrl = process.env.imageUrl550;
-
-  const firstMove = () => {
-    setChange(true);
-  };
-
   return (
     <div className={styles.container}>
-      <Swiper
-        modules={[Navigation]}
-        spaceBetween={10}
-        loop={true}
-        centeredSlides={true}
-        onSliderFirstMove={firstMove}
-        navigation={{
-          nextEl: `.${styles.nextEl}`,
-          prevEl: `.${styles.prevEl}`,
-        }}
-        slidesPerView={"auto"}
-        className={styles.moviesList}
-      >
-        <span className={styles.title} slot="container-start">
-          {subject}
-        </span>
-        <span
-          unselectable="on"
-          className={styles.nextEl}
-          onClick={() => {
-            if (!change) {
-              setChange(true);
-            }
-          }}
-        >
-          &gt;
-        </span>
-
-        <span
-          unselectable="on"
-          className={`${styles.prevEl} ${change ? `` : `${styles.hidden}`}`}
-        >
-          &lt;
-        </span>
-
-        {data.results.map(({ title, id, backdrop_path, name, overview }) => {
-          if (backdrop_path === null) {
+      <h3>{subject}</h3>
+      <div className={styles.list}>
+        {data.results.map(({ id, poster_path, title, name }) => {
+          if (!poster_path) {
             return;
           }
           return (
-            <SwiperSlide key={id}>
-              <Card
-                title={title ? title : name}
-                id={id ? id : ""}
-                url={`${imageUrl}${backdrop_path}`}
-                overview={overview ? overview : "No overview."}
-                type={type}
-              />
-            </SwiperSlide>
+            <Card
+              id={id}
+              type={type}
+              url={poster_path}
+              title={title ? title : name}
+              key={id}
+            />
           );
         })}
-      </Swiper>
+      </div>
     </div>
   );
 };

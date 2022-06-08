@@ -1,84 +1,24 @@
-.container {
-  position: relative;
-  display: inline-flex;
+.card {
+  display: flex;
   flex-direction: column;
-  width: 200px;
-  gap: 5px;
-  margin-bottom: 25px;
-  overflow: hidden;
-  background-color: #000;
-  transition: 0.4s;
+  width: 140px;
 
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.25);
-    z-index: 1;
-    .title,
-    .synopsis {
-      display: -webkit-box;
-      z-index: 1;
-    }
-    .blackBottom {
-      background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.9) 80%);
-    }
-  }
-
-  .images {
-    position: relative;
-    width: inherit;
-    height: 100px;
-    margin: auto;
-  }
-  .info {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    justify-content: flex-end;
-    padding: 10px;
-  }
   .title {
-    font-size: 0.7em;
-    margin-bottom: 2px;
-  }
-  .title,
-  .synopsis {
-    pointer-events: none;
-    display: none;
-    -webkit-text-stroke-color: #000;
-  }
-  .synopsis {
+    width: inherit;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: none;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    line-clamp: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    line-clamp: 1;
     -webkit-box-orient: vertical;
-    margin-bottom: 5px;
-    font-size: 0.5em;
-  }
-
-  .blackBottom {
-    transition: 1s;
-    position: absolute;
-    height: 100%;
-    width: 100%;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
-
 @media (min-width: 640px) {
-  .container {
-    width: 300px;
-    .images {
-      width: inherit;
-      height: 150px;
-    }
-    .title {
-      font-size: 1em;
-    }
-    .synopsis {
-      font-size: 0.5em;
-    }
+  .card {
+    width: 200px !important;
   }
 }

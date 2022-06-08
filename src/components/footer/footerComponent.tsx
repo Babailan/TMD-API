@@ -14,9 +14,6 @@ const Footer = () => {
           REPOSITORY
         </a>
       </div>
-      <div className={styles.centercol}>
-        &copy;<span className={styles.year}>{year} Ronnel Babailan</span>
-      </div>
       <div className={styles.rightcol}>
         <a
           href={"https://developers.themoviedb.org/"}
@@ -26,6 +23,9 @@ const Footer = () => {
         >
           USED API
         </a>
+      </div>
+      <div className={styles.centercol}>
+        &copy;<span className={styles.year}>{year} Ronnel Babailan</span>
       </div>
     </div>
   );

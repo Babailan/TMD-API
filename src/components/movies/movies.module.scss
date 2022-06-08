@@ -1,47 +1,21 @@
 .container {
-  padding: 1em;
-  .moviesList {
-    padding: 10px 0;
-    .prevEl,
-    .nextEl {
-      position: absolute;
-      top: 45%;
-      -webkit-text-stroke: 0.16px #000;
-      transform: scale(4);
-      z-index: 10;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      -webkit-user-select: none; /* Safari */
-      -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* IE10+/Edge */
-      user-select: none; /* Standard */
-    }
-    .hidden {
-      display: none;
-    }
-    .nextEl {
-      right: 20px;
-      pointer-events: visiblePainted;
-    }
-    .prevEl {
-      left: 20px;
-    }
+  display: flex;
+  flex-direction: column;
+  > h3 {
+    padding: 0.5em;
   }
-  .title,
-  .synopsis {
-    margin-bottom: 20px;
-    font-size: 1.3em;
-    &:hover {
-      cursor: pointer;
-    }
+  .list {
+    padding: 0.5em;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 5em;
   }
 }
 
 @media (min-width: 640px) {
   .container {
-    padding: 0 2em;
+    padding: 2em;
   }
 }

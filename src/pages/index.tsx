@@ -40,7 +40,7 @@ const Home: NextPage = ({
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // fetch data ascending order https://api.themoviedb.org/3/discover/movie?api_key= <<API KEY SHOULD BE PROVIDED HERE>>
   const apiUrl = process.env.apiUrl;
   const randomPage = Math.random() * 20;
@@ -84,7 +84,6 @@ export async function getStaticProps() {
       discoverTv: discoverTv.data,
       tv_popular: tv_popular.data,
     },
-    revalidate: 43200,
   };
 }
 export default Home;

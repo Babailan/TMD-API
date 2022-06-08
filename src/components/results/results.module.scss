@@ -2,7 +2,6 @@
 
 .Result {
   display: flex;
-  padding: 1em;
   background-color: base.$background-body;
   top: 0;
   left: 0;
@@ -12,6 +11,7 @@
   gap: 1em;
   flex-direction: column;
   .inputContainer {
+    padding: 1em;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -41,15 +41,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2em;
+    gap: 1em;
+    padding: 0.5em;
   }
   .card {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 140px;
     .title {
-      width: 200px;
-      min-width: 200px;
+      width: inherit;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -67,5 +67,8 @@
 @media (min-width: 640px) {
   .Result {
     padding: 2em !important;
+  }
+  .card {
+    width: 200px !important;
   }
 }

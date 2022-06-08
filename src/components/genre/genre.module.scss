@@ -7,10 +7,9 @@
   .card {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 140px;
     .title {
-      width: 200px;
-      min-width: 200px;
+      width: inherit;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -28,5 +27,8 @@
 @media (min-width: 640px) {
   .container {
     padding: 0 2em;
+  }
+  .card {
+    width: 200px !important;
   }
 }
